@@ -4,7 +4,7 @@ import sys
 import logging
 import shutil
 from flask import Flask, jsonify, render_template, request
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
