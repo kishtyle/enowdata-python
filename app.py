@@ -54,7 +54,7 @@ def process():
       output_file = os.path.join(folder, app.config['OCR_OUTPUT_FILE'])
       file.save(input_file)
 
-      command = ['tesseract', input_file, output_file, '-l', request.form['lang'], hocr, '--psm', psm, '--oem', oem]
+      command = ['tesseract', input_file, output_file, '-l', request.form['lang'], '--psm', psm, '--oem', oem, hocr]
       proc = subprocess.Popen(command, stderr=subprocess.PIPE)
       proc.wait()
 
