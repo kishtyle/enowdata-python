@@ -3,11 +3,8 @@ import subprocess
 import sys
 import logging
 import shutil
-import face_recognition
-import cv2
-import numpy as np
 from flask import Flask, jsonify, render_template, request
-from werkzeug.utils import secure_filename
+from werkzeug import secure_filename
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
@@ -22,18 +19,18 @@ def allowed_file(filename):
 
 @app.errorhandler(404)
 def not_found(error):
-  resp = jsonify( {
-    u'status': 404,
-    u'message': u'Resource not found'
+  resp = jsonify( { 
+    u'status': 404, 
+    u'message': u'Resource not found' 
   } )
   resp.status_code = 404
   return resp
 
 @app.route('/')
 def api_root():
-  resp = jsonify( {
-    u'status': 200,
-    u'message': u'Welcome to our secret APIs'
+  resp = jsonify( { 
+    u'status': 200, 
+    u'message': u'Welcome to our secret APIs' 
   } )
   resp.status_code = 200
   return resp
@@ -41,7 +38,6 @@ def api_root():
 @app.route('/test', methods = ['GET'])
 def test():
   return render_template('upload_form.html', landing_page = 'process')
-
 
 @app.route('/process', methods = ['GET','POST'])
 def process():
@@ -78,16 +74,16 @@ def process():
       shutil.rmtree(folder)
       return resp
     else:
-      resp = jsonify( {
+      resp = jsonify( { 
         u'status': 415,
-        u'message': u'Unsupported Media Type'
+        u'message': u'Unsupported Media Type' 
       } )
       resp.status_code = 415
       return resp
   else:
-      resp = jsonify( {
-      u'status': 405,
-      u'message': u'The method is not allowed for the requested URL'
+    resp = jsonify( { 
+      u'status': 405, 
+      u'message': u'The method is not allowed for the requested URL' 
     } )
     resp.status_code = 405
     return resp
