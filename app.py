@@ -93,7 +93,7 @@ def process():
 
 @app.route('/facerec', methods = ['GET'])
 def facerec():
-return render_template('facerec_form.html', landing_page = 'facedetect')
+  return render_template('facerec_form.html', landing_page = 'facedetect')
 
 @app.route('/facedetect', methods = ['GET','POST'])
 def facedetect():
