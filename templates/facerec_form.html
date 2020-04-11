@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<title>Face Recognition</title>
+<h2>Detect Face </h2>
+
+<form action="{{ landing_page }}" method="post" enctype="multipart/form-data">
+  <label for="fname">Enter Video Source</label><br>
+  <input type="text" id="vsource" name="vsource" value="rtsp://192.168.1.19:8554/mjpeg/1"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>If you click the "Submit" button, the video is streamed to our server and faces are detected.</p>
+
+</body>
+</html>
