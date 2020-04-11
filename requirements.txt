@@ -1,4 +1,6 @@
+cmake
 gunicorn==20.0.4
+face_recognition
 Flask==1.1.1
 setuptools==46.0.0
 Werkzeug==1.0.0
