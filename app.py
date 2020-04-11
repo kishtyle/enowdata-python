@@ -65,7 +65,7 @@ def process():
         f = open(output_file)
         resp = jsonify( {
           u'status': 200,
-          u'ocr':{k:v.decode('utf-8') for k,v in enumerate(f.read().splitlines())}
+          u'ocr':{k:v for k,v in enumerate(f.read().splitlines())}
         } )
       else:
         resp = jsonify( {
