@@ -172,7 +172,14 @@ def facedetect():
                     face_names.append(name)
                             
             process_this_frame = not process_this_frame
-
+            
+        resp = jsonify( {
+            u'status': 405,
+            u'message': u'The method is not allowed for the requested URL'
+        } )
+        resp.status_code = 405
+        return resp
+      
     else:
         resp = jsonify( {
             u'status': 405,
