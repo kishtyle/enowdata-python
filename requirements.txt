@@ -1,8 +1,4 @@
-opencv-python
-numpy
-cmake
 gunicorn
-face_recognition
 Flask
 setuptools
 Werkzeug
