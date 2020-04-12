@@ -121,9 +121,7 @@ def facedetect():
         face_encodings = []
         face_names = []
         process_this_frame = True
-        
-        while True:
-            # Grab a single frame of video
+        # Grab a single frame of video
             ret, frame = video_capture.read()
             
             # Resize frame of video to 1/4 size for faster face recognition processing
@@ -156,9 +154,17 @@ def facedetect():
                         if best_match_index == 0:
                             name = known_face_names[best_match_index]
                             print('first')
+                            resp = jsonify( {
+                            u'status': 200,
+                            u'Name': name
+                            } )
                         else:
                             name = known_face_names[best_match_index-1]
                             print('Not first')
+                            resp = jsonify( {
+                            u'status': 200,
+                            u'Name': name
+                            } )
                     else:
                         name = "Unknown"
                         # if matches[best_match_index]:
@@ -170,8 +176,8 @@ def facedetect():
                         } )
                             
                     face_names.append(name)
-                            
-            process_this_frame = not process_this_frame
+                    return resp
+        process_this_frame = not process_this_frame
             
         resp = jsonify( {
             u'status': 405,
